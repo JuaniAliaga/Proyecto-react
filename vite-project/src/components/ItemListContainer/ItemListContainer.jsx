@@ -1,10 +1,19 @@
+import { useState,useEffect } from "react"
+import ItemList from "./ItemList"
+import obtenerProdutos from "../../productos"
 
-const ItemListContainer = ({greeting}) => {
+const ItemListContainer = () => {
+    const [item, setItem] = useState([])
+
+    obtenerProdutos().then((response) => {
+        setItem(response)
+    })
+
     return(
         <div className="container-fluid">
-            <h1 className="text-center">{greeting}</h1>
+            <ItemList item={item}/>
         </div>
     )
 }
 
-export default ItemListContainer
+export default ItemListContainer    

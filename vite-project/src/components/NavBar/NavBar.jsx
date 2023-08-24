@@ -1,14 +1,14 @@
 import style from "./NavBar.css"
 import CartWidget from "../CartWidget/CartWidget";
-import ItemListContainer from "../ItemListContainer/ItemListContainer"
+import {Link, NavLink} from "react-router-dom"
 
 const NavBar = () => {
     return (
         <>
         <nav className="navbar navbar-expand-lg">
             <div className="container-fluid">
-                <a href="#" className="navbar-brand text-white col-md-2 text-center">GAMER KEY</a>
-                <div className="container d-flex col-md-9">
+                <Link to="/" className="navbar-brand text-white col-md-2 text-center">GAMER KEY</Link>
+                <div className="col-md-9 d-flex align-items-center">
                     <input className="form-control rounded-0" type="search" placeholder="Search" aria-label="Search"></input>
                 </div>
                 <CartWidget />
@@ -23,15 +23,12 @@ const NavBar = () => {
 
                 <li className="list-group-item border-0 rounded-0"><a href="#" className="link-underline link-underline-opacity-0 text-light">Notebooks</a></li>
 
-                <li className="list-group-item border-0 rounded-0"><a href="#" className="link-underline link-underline-opacity-0 text-light">Pc de escritorio</a></li>
-
                 <li className="list-group-item border-0 rounded-0"><a href="#" className="link-underline link-underline-opacity-0 text-light">Placas de video</a></li>
 
                 <li className="list-group-item border-0 rounded-0"><a href="#" className="link-underline link-underline-opacity-0 text-light">Procesadores</a></li>
 
             </ul>
         </div>
-        <ItemListContainer greeting="Hola, bienvenido a nuestra tienda de hardware"/>
         </>
     )   
 }

@@ -1,13 +1,17 @@
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
 import NavBar from './components/NavBar/NavBar'
+import ItemListContainer from "./components/ItemListContainer/ItemListContainer"
+import {Routes, Route} from "react-router-dom"
 
 function App() {
 
   return (
     <>
     <NavBar />
+
+    <Routes>
+        <Route path='/'  element={<ItemListContainer />}/>
+
+    </Routes>
     </>
   )
 }
