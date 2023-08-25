@@ -6,16 +6,16 @@ import {obtenerProdutos} from "../../productos"
 const ItemListContainer = () => {
     const [item, setItem] = useState([])
     const [isLoading, setIsLoading] = useState(true)
-    const {id} = useParams()
+    const {categoryid} = useParams()
 
     useEffect(() => {
 
         setIsLoading(true)
-        obtenerProdutos(id).then((response) => {
+        obtenerProdutos(categoryid).then((response) => {
             setItem(response)
             setIsLoading(false)
         })
-    },[id])
+    },[categoryid])
 
 
 

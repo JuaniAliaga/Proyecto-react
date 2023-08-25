@@ -20,7 +20,7 @@ export const obtenerProduto = (id) => {
             }else{
                 reject("Todavia no tenemos ese producto :c")
             }
-        }, 2000)
+        }, 1000)
     })
 }
 
