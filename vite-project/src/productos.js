@@ -1,6 +1,6 @@
 const productos = [
-    {id: '1', nombre: "Teclado Hyperx Alloy Fps",precio: 500, categoria: "Teclados"},
-    {id: '2', nombre: "Teclado Hyperx Alloy Origin",precio: 600, categoria: "Teclados"},
+    {id: '1', nombre: "Teclado Hyperx Alloy Fps",precio: 500, categoria: "Perifericos"},
+    {id: '2', nombre: "Teclado Hyperx Alloy Origin",precio: 600, categoria: "Perifericos"},
     {id: '3', nombre: "Monitor ASUS VA27EHE ",precio: 1000, categoria: "Monitores"},
     {id: '4', nombre: "Monitor AOC G2490VX",precio: 900, categoria: "Monitores"},
     {id: '5', nombre: "Notebook Banghó L4", precio: 1500, categoria: "Notebooks"},
@@ -18,19 +18,17 @@ export const obtenerProduto = (id) => {
             if(producto){
                 resolve(producto)
             }else{
-                reject("Todavia no tenes ese producto :c")
+                reject("Todavia no tenemos ese producto :c")
             }
         }, 2000)
     })
 }
 
-const obtenerProdutos = (categor) => {
+export const obtenerProdutos = (categor) => {
     return new Promise((resolve, reject) => {
         setTimeout(() =>{
             const productoFiltrado = categor ? productos.filter((el) => el.categoria === categor) : productos
             resolve(productoFiltrado)
-        },2000)
+        },1000)
     })
 }
-
-export default obtenerProdutos

@@ -1,10 +1,11 @@
 
-
-const ItemList = ({item}) => {
+const ItemList = ({item,loading}) => {
+    if (loading) {
+        return <h2>Cargando productos...</h2>
+    }
     return (
         <div>
             <h2>Productos</h2>
-
             <div className="contenedor">
                 {item.map((p) => (
                     <div key={p.id} className="card">

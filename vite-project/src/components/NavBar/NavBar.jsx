@@ -17,15 +17,15 @@ const NavBar = () => {
         <div className="categorias container-fluid d-flex justify-content-center align-items-center">
             <h2 className="border-end text-light fs-4">Categorias</h2>
             <ul className="list-group list-group-horizontal m-1">
-                <li className="list-group-item border-0 rounded-0"><a href="#" className="link-underline link-underline-opacity-0 text-light">Perifericos</a></li>
+                <li className="list-group-item border-0 rounded-0"><NavLink to="/category/Perifericos" className="link-underline link-underline-opacity-0 text-light">Perifericos</NavLink></li>
 
-                <li className="list-group-item border-0 rounded-0"><a href="#" className="link-underline link-underline-opacity-0 text-light">Monitores</a></li>
+                <li className="list-group-item border-0 rounded-0"><NavLink to="/category/Monitores" className="link-underline link-underline-opacity-0 text-light">Monitores</NavLink></li>
 
-                <li className="list-group-item border-0 rounded-0"><a href="#" className="link-underline link-underline-opacity-0 text-light">Notebooks</a></li>
+                <li className="list-group-item border-0 rounded-0"><NavLink to="/category/Notebooks" className="link-underline link-underline-opacity-0 text-light">Notebooks</NavLink></li>
 
-                <li className="list-group-item border-0 rounded-0"><a href="#" className="link-underline link-underline-opacity-0 text-light">Placas de video</a></li>
+                <li className="list-group-item border-0 rounded-0"><NavLink to="/category/GPU" className="link-underline link-underline-opacity-0 text-light">Placas de video</NavLink></li>
 
-                <li className="list-group-item border-0 rounded-0"><a href="#" className="link-underline link-underline-opacity-0 text-light">Procesadores</a></li>
+                <li className="list-group-item border-0 rounded-0"><NavLink to="/category/CPU" className="link-underline link-underline-opacity-0 text-light">Procesadores</NavLink></li>
 
             </ul>
         </div>
