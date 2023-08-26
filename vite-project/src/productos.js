@@ -18,7 +18,7 @@ export const obtenerProduto = (id) => {
             if(producto){
                 resolve(producto)
             }else{
-                reject("Todavia no tenemos ese producto :c")
+                reject("Todavia no tenemos ese producto")
             }
         }, 1000)
     })
