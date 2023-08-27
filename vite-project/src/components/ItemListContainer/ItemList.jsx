@@ -4,6 +4,10 @@ const ItemList = ({item,loading}) => {
     if (loading) {
         return <h2 className="text-center mt-3">Cargando productos...</h2>
     }
+    if (item.length === 0) {
+        return <h2 className="text-center mt-3 text-danger">Categoria invalida...</h2>
+    }
+
     return (
         <div>
             <h2>Productos</h2>

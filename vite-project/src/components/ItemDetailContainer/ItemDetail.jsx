@@ -7,7 +7,7 @@ const ItemDetail = ({item, loading}) => {
     }
 
     if (!item) {
-        return <h2>Todavia no tenemos ese producto</h2>
+        return <h2 className="text-center mt-3 text-danger">Todavia no tenemos ese producto</h2>
     }
 
     return (
