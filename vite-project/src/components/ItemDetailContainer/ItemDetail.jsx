@@ -11,9 +11,11 @@ const ItemDetail = ({item, loading}) => {
     }
 
     return (
-        <div>
-            <h1>{item.nombre}</h1>
-            <p>{item.precio}</p>
+        <div className="container-fluid d-flex justify-content-center">
+        <div className="card mt-4">
+            <h1 className="card-tittle">{item.nombre}</h1>
+            <p className="card-text">${item.precio}</p>
+        </div>
         </div>
     )
 }
