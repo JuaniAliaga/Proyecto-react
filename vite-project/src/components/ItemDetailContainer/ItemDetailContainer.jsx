@@ -1,14 +1,16 @@
 import ItemDetail from "./ItemDetail"
-import { useState, useEffect } from "react"
+import CartContext from "../../context/CartContext"
+import { useState, useEffect, useContext } from "react"
 import { obtenerProduto } from "../../productos"
 import { useParams } from "react-router-dom"
 
 
 const ItemDetailContainer = () => {
     const [item, setItem] = useState(true)
-    //Si establezco el estado de item en null, no me lo toma
     const [loading, setLoading] = useState(true)
     const { id } = useParams()
+
+    const { agregarItem } = useContext(CartContext)
 
     useEffect(() => {
         obtenerProduto(id)
@@ -25,7 +27,7 @@ const ItemDetailContainer = () => {
 
 
 
-    return <ItemDetail item={item} loading={loading}/>
+    return <ItemDetail item={item} loading={loading} agregarItem={agregarItem}/>
     
 }
 
