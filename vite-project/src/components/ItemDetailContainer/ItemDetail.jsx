@@ -11,9 +11,11 @@ const ItemDetail = ({item, loading, agregarItem}) => {
 
     return (
         <div className="container-fluid d-flex justify-content-center">
-        <div className="card mt-4">
-            <h1 className="card-tittle">{item.nombre}</h1>
-            <p className="card-text">${item.precio}</p>
+        <div className="card mt-4" style={{maxWidth: "550px"}}>
+            <img src={`../../../public/${item.imageId}`} className="card-img-top img-fluid h-50 p-1" alt={item.nombre} />
+            <h1 className="card-title text-center mt-2">{item.nombre}</h1>
+            <span className="card-text text-start ms-3 mt-2 mb-2">${item.precio}</span>
+            <p className="card-text text-center fw-bold mt-2 mb-4">{item.descripcion}</p>
             <button onClick={() => agregarItem(item,1)} className="btn btn-success w-50 m-auto mb-1">Agregar al carrito</button>
         </div>
         </div>

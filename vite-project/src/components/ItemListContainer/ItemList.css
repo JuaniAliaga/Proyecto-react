@@ -1,0 +1,15 @@
+.img-fluid:hover{
+    transform: scale(1.01);
+}
+
+.card-body{
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, 35px) 1fr;
+    grid-row-gap: 5px;
+}
+
+.btn{
+    align-self: flex-end;
+}

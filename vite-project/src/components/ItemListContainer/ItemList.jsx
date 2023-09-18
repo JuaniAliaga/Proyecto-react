@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom"
+import "./ItemList.css"
 
-const ItemList = ({item,loading}) => {
+const ItemList = ({ item, loading }) => {
     if (loading) {
         return <h2 className="text-center mt-3">Cargando productos...</h2>
     }
@@ -11,12 +12,15 @@ const ItemList = ({item,loading}) => {
     return (
         <div>
             <h2 className="text-center mt-2">Productos</h2>
-            <div className="card-container" style={{display: "flex", flexWrap: "wrap", gap: "10px"}}>
+            <div className="card-container d-flex flex-wrap gap-3 justify-content-center">
                 {item.map((p) => (
-                    <div key={p.id} className="card" style={{flex: "0", minWidth: "360px"}}>
-                        <h5 className="card-tittle text-center">{p.nombre}</h5>
-                        <p className="card-text ms-1 mb-2 fw-bold text-start">${p.precio}</p>
-                        <Link to={`/item/${p.id}`} className="btn btn-primary w-50 m-auto mb-1">Detalles</Link>
+                    <div key={p.id} className="card overflow-hidden" style={{maxWidth: "345px", maxHeight: "370px"}}>
+                        <img src={`../../../public/${p.imageId}`} className="card-img-top img-fluid h-50 p-1" style={{ boxShadow: '0px 5px 10px -6px rgba(0,0,0,0.85)' }} alt={p.nombre} />
+                        <div className="card-body">
+                        <h5 className="card-title text-center mt-2">{p.nombre}</h5>
+                        <p className="card-text text-start fw-bold ms-3">${p.precio}</p>
+                        <Link to={`/item/${p.id}`} className="btn btn-primary w-50 mx-auto mb-1">Detalles</Link>
+                        </div>
                     </div>
                 ))}
             </div>
