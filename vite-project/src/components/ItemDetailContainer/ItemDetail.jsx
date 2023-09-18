@@ -16,7 +16,7 @@ const ItemDetail = ({item, loading, agregarItem}) => {
             <h1 className="card-title text-center mt-2">{item.nombre}</h1>
             <span className="card-text text-start ms-3 mt-2 mb-2">${item.precio}</span>
             <p className="card-text text-center fw-bold mt-2 mb-4">{item.descripcion}</p>
-            <button onClick={() => agregarItem(item,1)} className="btn btn-success w-50 m-auto mb-1">Agregar al carrito</button>
+            <button onClick={() => agregarItem(item, 1)} className="btn btn-success w-50 m-auto mb-1">Agregar al carrito</button>
         </div>
         </div>
     )

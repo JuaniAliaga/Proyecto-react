@@ -11,7 +11,7 @@ const NavBar = () => {
                 <div className="col-md-9 d-flex align-items-center">
                     <input className="form-control rounded-0" type="search" placeholder="Search" aria-label="Search"></input>
                 </div>
-                <Link to="/orders"><CartWidget /></Link>
+                <Link to="/cart"><CartWidget /></Link>
             </div>
         </nav>
         <div className="categorias container-fluid d-flex justify-content-center align-items-center">

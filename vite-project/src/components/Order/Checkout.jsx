@@ -21,22 +21,22 @@ const Checkout = () => {
 
     const enviar = (e) => {
         e.preventDefault()
-        console.log(`${nombre} ${email} ${telefono}`);
+        console.log(`Su nombre es:${nombre}, email: ${email}, y telefono: ${telefono}`);
     }
 
     return (
         <form className="container m-auto w-50 mt-3">
             <div className="mb-3">
                 <label className="form-label" htmlFor="Email">Correo electronico</label>
-                <input type="email" className="form-control" id="Email" name="Email" onChange={valorInput} placeholder="Introduzca su correo"/>
+                <input type="email" className="form-control" id="Email" name="email" onChange={valorInput} placeholder="Introduzca su correo"/>
             </div>
             <div className="mb-3">
                 <label className="form-label" htmlFor="Nombre">Nombre</label>
-                <input type="text" className="form-control" id="Nombre" name="Nombre" onChange={valorInput} placeholder="Introduzca su nombre"/>
+                <input type="text" className="form-control" id="Nombre" name="nombre" onChange={valorInput} placeholder="Introduzca su nombre"/>
             </div>
             <div className="mb-3">
                 <label className="form-label" htmlFor="Telefono">Telefono</label>
-                <input type="tel" className="form-control" id="Telefono" name="Telefono" onChange={valorInput} placeholder="Introduzca su numero"/>
+                <input type="tel" className="form-control" id="Telefono" name="telefono" onChange={valorInput} placeholder="Introduzca su numero"/>
             </div>
             <button type="submit" className="btn btn-primary" onClick={enviar}>Enviar</button>
         </form>

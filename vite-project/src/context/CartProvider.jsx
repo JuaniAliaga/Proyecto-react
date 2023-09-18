@@ -27,11 +27,12 @@ const CartProvider = ({children}) => {
         }else{
             setCart([...cart, {...producto, cantidad }])
         }
+        console.log(cart)
     }
 
 
     const removerItem = (producto) => {
-        const nuevoCarrito = cart.filter(el => el.id !== producto)
+        const nuevoCarrito = cart.filter(el => el.id !== producto.id)
         setCart(nuevoCarrito)
     }
 
