@@ -20,6 +20,8 @@ function App() {
         <Route path='/item/:id' element={<ItemDetailContainer />}/>
 
         <Route path='/cart' element={<Cart />}/>
+
+        <Route path='/checkout' element={<Checkout />}/>
     </Routes>
     </CartProvider>
   )

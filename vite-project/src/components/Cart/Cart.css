@@ -30,7 +30,6 @@
 }
 
 .vaciar-carrito {
-    margin-top: 1.5em;
     background-color: #d9534f;
     color: #fff;
     border: none;
@@ -43,7 +42,19 @@
     margin-right: 5px;
 }
 
+.finalizar-compra{
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
 .contenedor-btn{
+    margin-top: 1.5em;
     display: flex;
+    gap: 1.5em;
+    margin-bottom: 1em;
     justify-content: center;
+    align-items: center;
 }
