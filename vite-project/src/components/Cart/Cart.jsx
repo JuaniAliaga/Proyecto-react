@@ -2,12 +2,14 @@ import { useContext } from "react"
 import "./Cart.css"
 import CartContext from "../../context/CartContext"
 import { Link } from "react-router-dom"
-import { totalProducto } from "../../utils"
-import { calcularTotal } from "../../utils"
+import { totalProducto, calcularTotal } from "../../utils"
+
 
 const Cart = () => {
 
     const { cart, agregarItem, removerItem, limpiarCarrito, decrementarItem} = useContext(CartContext)
+    
+    const total = calcularTotal(cart)
 
     return (
         <div>
@@ -30,10 +32,10 @@ const Cart = () => {
 
             {cart.length > 0 ? (
             <div className="container-fluid mt-3 mb-3 fw-bold fs-4 text-center">
-                <p>Su total es de: ${calcularTotal(cart)}</p>
+                <p>Su total es de: ${total}</p>
                 <div className="contenedor-btn">
                     <button className="btn btn-danger vaciar-carrito" onClick={() => limpiarCarrito()}><i className="bi bi-cart-x"></i> Vaciar Carrito</button>
-                    <Link to={"/checkout"}><button className="btn btn-primary finalizar-compra">Finalizar Compra <i className="bi bi-cart-fill"></i></button></Link>
+                    <Link to={"/checkout"}><button className="btn btn-primary finalizar-compra">Continuar <i className="bi bi-cart-fill"></i></button></Link>
                 </div>
             </div>)
             : <p className="carrito-vacio">Todavia no hay productos en el carrito...</p>}

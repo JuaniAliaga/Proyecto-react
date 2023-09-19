@@ -1,4 +1,4 @@
-import { doc, getDoc, collection, getDocs, getFirestore, query, where } from "firebase/firestore"
+import { doc, getDoc, collection, getDocs,addDoc, getFirestore, query, where } from "firebase/firestore"
 
 
 export const obtenerProduto = (id) => {
@@ -41,4 +41,12 @@ export const obtenerProdutos = (categor) => {
             })
             .catch((error) => reject(error))
     })
+}
+
+export const crearOrders = (orden) =>{
+    const db = getFirestore()
+
+    const orderCollection = collection(db, "order")
+
+    return addDoc(orderCollection, orden)
 }

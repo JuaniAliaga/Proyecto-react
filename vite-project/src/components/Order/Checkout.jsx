@@ -1,9 +1,14 @@
-import {getFirestore, collection, addDoc} from "firebase/firestore"
+import { useContext } from "react"
+import CartContext from "../../context/CartContext"
 import { useState } from "react"
 import "./Checkout.css"
+import { calcularTotal, mapeoDeCarritoParaOrders } from "../../utils"
+import { serverTimestamp } from "firebase/firestore"
+import { crearOrders } from "../../productos"
 
 
 const Checkout = () => {
+    const [orderId, setOrderId] = useState(null)
     const [input, setInput] = useState({
         email: "",
         nombre: "",
@@ -11,6 +16,27 @@ const Checkout = () => {
     })
 
     const {email, nombre, telefono} = input
+
+    const {cart, limpiarCarrito} = useContext(CartContext)
+
+    const total = calcularTotal(cart)
+
+    const handleCheckout = () =>{
+        const order = {
+            buyer: {
+                nombre,
+                email,
+                telefono
+            },
+            items:mapeoDeCarritoParaOrders(cart),
+            total,
+            date: serverTimestamp()
+        }
+        crearOrders(order).then((docRef) => {
+            setOrderId(docRef.id)
+            limpiarCarrito()
+        })
+    }
 
     const valorInput = (e) => {
         setInput({
@@ -21,10 +47,13 @@ const Checkout = () => {
 
     const enviar = (e) => {
         e.preventDefault()
-        console.log(`Su nombre es:${nombre}, email: ${email}, y telefono: ${telefono}`);
+        handleCheckout()
     }
 
     return (
+        <>
+        {orderId && <p className="orden">Su numero de orden es: {orderId}</p>}
+        {!orderId && 
         <form className="container m-auto w-50 mt-3">
             <div className="mb-3">
                 <label className="form-label" htmlFor="Email">Correo electronico</label>
@@ -40,6 +69,8 @@ const Checkout = () => {
             </div>
             <button type="submit" className="btn btn-primary" onClick={enviar}>Enviar</button>
         </form>
+        }
+        </>
     )
 }
 
