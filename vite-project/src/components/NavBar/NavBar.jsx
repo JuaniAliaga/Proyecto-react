@@ -16,7 +16,7 @@ const NavBar = () => {
         </nav>
         <div className="categorias container-fluid d-flex justify-content-center align-items-center">
             <h2 className="border-end text-light fs-4">Categorias</h2>
-            <ul className="list-group list-group-horizontal m-1">
+            <ul className="list-group list-group-horizontal m-1 flex-wrap">
                 <li className="list-group-item border-0 rounded-0"><NavLink to="/category/Perifericos" className="link-underline link-underline-opacity-0 text-light links">Perifericos</NavLink></li>
 
                 <li className="list-group-item border-0 rounded-0"><NavLink to="/category/Monitores" className="link-underline link-underline-opacity-0 text-light links">Monitores</NavLink></li>

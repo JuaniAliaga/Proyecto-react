@@ -4,7 +4,7 @@ import "./ItemList.css"
 const ItemList = ({ item, loading }) => {
     if (loading) {
         return <div className="d-flex justify-content-center align-items-center gap-3 mt-4">
-            <div class="spinner-border" role="status"></div>
+            <div className="spinner-border" role="status"></div>
         </div>
     }
     if (item.length === 0) {
