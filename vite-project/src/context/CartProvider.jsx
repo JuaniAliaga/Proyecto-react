@@ -30,6 +30,22 @@ const CartProvider = ({children}) => {
         console.log(cart)
     }
 
+    const decrementarItem = (producto, cantidad) => {
+        if (producto.cantidad === 1) {
+            removerItem(producto)
+        }else{
+            const nuevoCarrito = cart.map((item) => {
+                if (item.id === producto.id) {
+                    return{
+                        ...item,
+                        cantidad: item.cantidad - cantidad
+                    }
+                }
+                return item
+            })
+            setCart(nuevoCarrito)
+        }
+    }   
 
     const removerItem = (producto) => {
         const nuevoCarrito = cart.filter(el => el.id !== producto.id)
@@ -43,7 +59,7 @@ const CartProvider = ({children}) => {
 
 
     return(
-        <CartContext.Provider value={{cart, agregarItem, removerItem, limpiarCarrito, estaEnCarrito}}>
+        <CartContext.Provider value={{cart, agregarItem, removerItem, limpiarCarrito, estaEnCarrito, decrementarItem}}>
             {children}
         </CartContext.Provider>
     )

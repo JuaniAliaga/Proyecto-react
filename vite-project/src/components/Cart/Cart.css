@@ -6,11 +6,11 @@
     transition: background-color 0.3s ease;
 }
 
-.cantidad{
+.cantidad {
     margin: 0;
 }
 
-.eliminar{
+.eliminar {
     margin: 0 auto;
     cursor: pointer;
     width: 42px;
@@ -18,6 +18,32 @@
     font-size: 2.2em;
 }
 
-.eliminar:hover{
+.eliminar:hover {
     color: red;
+}
+
+.carrito-vacio {
+    font-size: 1.5rem;
+    font-weight: 500;
+    text-align: center;
+    margin-top: 2em;
+}
+
+.vaciar-carrito {
+    margin-top: 1.5em;
+    background-color: #d9534f;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.vaciar-carrito i {
+    margin-right: 5px;
+}
+
+.contenedor-btn{
+    display: flex;
+    justify-content: center;
 }

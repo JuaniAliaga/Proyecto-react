@@ -8,10 +8,14 @@
 }
 
 .list-group-item {
-    cursor: pointer;
-    padding: 8px 10px;
     background-color: transparent;
-    transition: background-color 0.3s, transform 0.3s;
+    padding: 0;
+    margin: 10px 0;
+}
+
+.links{
+    padding: 10px 16px;
+    transition: background-color 0.3s;
 }
 
 .container{
@@ -29,8 +33,6 @@ h2{
     background-color: #454545   ;
 }
 
-.list-group-item:hover{
+.list-group-item .links:hover{
     background-color: darkgray;
-    transform: scale(1.1);
-}
-
+} 
