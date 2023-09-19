@@ -3,7 +3,9 @@ import "./ItemList.css"
 
 const ItemList = ({ item, loading }) => {
     if (loading) {
-        return <h2 className="text-center mt-3">Cargando productos...</h2>
+        return <div className="d-flex justify-content-center align-items-center gap-3 mt-4">
+            <div class="spinner-border" role="status"></div>
+        </div>
     }
     if (item.length === 0) {
         return <h2 className="text-center mt-3 text-danger">Categoria invalida...</h2>

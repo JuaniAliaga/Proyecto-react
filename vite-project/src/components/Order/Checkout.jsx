@@ -9,6 +9,7 @@ import { crearOrders } from "../../productos"
 
 const Checkout = () => {
     const [orderId, setOrderId] = useState(null)
+    const [isLoading, setIsLoading] = useState(false);
     const [input, setInput] = useState({
         email: "",
         nombre: "",
@@ -32,8 +33,10 @@ const Checkout = () => {
             total,
             date: serverTimestamp()
         }
+        setIsLoading(true)
         crearOrders(order).then((docRef) => {
             setOrderId(docRef.id)
+            setIsLoading(false)
             limpiarCarrito()
         })
     }
@@ -52,22 +55,31 @@ const Checkout = () => {
 
     return (
         <>
-        {orderId && <p className="orden">Su numero de orden es: {orderId}</p>}
+
+        {isLoading && <div className="d-flex justify-content-center align-items-center gap-3 mt-4">
+                            <div class="spinner-border" role="status"></div>
+                        </div>}
+
+        {orderId && <div>
+            <h1 className="text-center mt-3">Compra finalizada</h1>
+            <p className="orden">Su numero de orden es: {orderId}</p>
+            </div>}
+        
         {!orderId && 
         <form className="container m-auto w-50 mt-3">
             <div className="mb-3">
                 <label className="form-label" htmlFor="Email">Correo electronico</label>
-                <input type="email" className="form-control" id="Email" name="email" onChange={valorInput} placeholder="Introduzca su correo"/>
+                <input type="email" className="form-control" id="Email" name="email" onChange={valorInput} placeholder="Introduzca su correo" required/>
             </div>
             <div className="mb-3">
                 <label className="form-label" htmlFor="Nombre">Nombre</label>
-                <input type="text" className="form-control" id="Nombre" name="nombre" onChange={valorInput} placeholder="Introduzca su nombre"/>
+                <input type="text" className="form-control" id="Nombre" name="nombre" onChange={valorInput} placeholder="Introduzca su nombre" required/>
             </div>
             <div className="mb-3">
                 <label className="form-label" htmlFor="Telefono">Telefono</label>
-                <input type="tel" className="form-control" id="Telefono" name="telefono" onChange={valorInput} placeholder="Introduzca su numero"/>
+                <input type="tel" className="form-control" id="Telefono" name="telefono" onChange={valorInput} placeholder="Introduzca su numero" required/>
             </div>
-            <button type="submit" className="btn btn-primary" onClick={enviar}>Enviar</button>
+            <button type="submit" className="btn btn-primary" onClick={enviar}>Finalizar compra</button>
         </form>
         }
         </>
