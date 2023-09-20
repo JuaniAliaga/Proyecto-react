@@ -7,8 +7,8 @@ import { totalProduct, calculateTotal } from "../../utils"
 
 const Cart = () => {
 
-    const { cart, addItem, removeItem, cleanCart, decrementItem} = useContext(CartContext)
-    
+    const { cart, addItem, removeItem, cleanCart, decrementItem } = useContext(CartContext)
+
     const total = calculateTotal(cart)
 
     return (
@@ -16,7 +16,7 @@ const Cart = () => {
             <h1 className="text-center mt-2">Carrito</h1>
             <div className="container-fluid d-flex justify-content-center gap-4 flex-wrap">
                 {cart.map((element) => (
-                    <div key={element.id} className="card overflow-hidden" style={{maxWidth: "345px", maxHeight: "370px"}}>
+                    <div key={element.id} className="card overflow-hidden" style={{ maxWidth: "345px", maxHeight: "370px" }}>
                         <img src={`../../../public/${element.imageId}`} className="card-img-top img-fluid h-50 p-1 border-bottom" alt={element.nombre} />
                         <h5 className="card-title text-center">{element.nombre}</h5>
                         <p className=" ms-2 fw-bold">${totalProduct(element)}</p>
@@ -31,14 +31,14 @@ const Cart = () => {
             </div>
 
             {cart.length > 0 ? (
-            <div className="container-fluid mt-3 mb-3 fw-bold fs-4 text-center">
-                <p>Su total es de: ${total}</p>
-                <div className="container-btn">
-                    <button className="btn btn-danger delete-cart" onClick={() => cleanCart()}><i className="bi bi-cart-x"></i> Vaciar Carrito</button>
-                    <Link to={"/checkout"}><button className="btn btn-primary finalize-purchase">Continuar <i className="bi bi-cart-fill"></i></button></Link>
-                </div>
-            </div>)
-            : <p className="empty-cart">Todavia no hay productos en el carrito...</p>}
+                <div className="container-fluid mt-3 mb-3 fw-bold fs-4 text-center">
+                    <p>Su total es de: ${total}</p>
+                    <div className="container-btn">
+                        <button className="btn btn-danger delete-cart" onClick={() => cleanCart()}><i className="bi bi-cart-x"></i> Vaciar Carrito</button>
+                        <Link to={"/checkout"}><button className="btn btn-primary finalize-purchase">Continuar <i className="bi bi-cart-fill"></i></button></Link>
+                    </div>
+                </div>)
+                : <p className="empty-cart">Todavia no hay productos en el carrito...</p>}
         </div>
     )
 }

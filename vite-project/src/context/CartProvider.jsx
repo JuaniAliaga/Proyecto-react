@@ -1,7 +1,7 @@
 import { useState } from "react"
 import CartContext from "./CartContext"
 
-const CartProvider = ({children}) => {
+const CartProvider = ({ children }) => {
     const [cart, setCart] = useState([])
 
     const inCart = (id) => {
@@ -9,10 +9,10 @@ const CartProvider = ({children}) => {
         return !!itemEnCarrito
     }
 
-    const addItem = (producto, cantidad) =>{
+    const addItem = (producto, cantidad) => {
 
         const enCarrito = inCart(producto.id)
-        
+
         if (enCarrito) {
             const nuevoCarrito = cart.map((item) => {
                 if (item.id === producto.id) {
@@ -24,19 +24,18 @@ const CartProvider = ({children}) => {
                 return item
             })
             setCart(nuevoCarrito)
-        }else{
-            setCart([...cart, {...producto, cantidad }])
+        } else {
+            setCart([...cart, { ...producto, cantidad }])
         }
-        console.log(cart)
     }
 
     const decrementItem = (producto, cantidad) => {
         if (producto.cantidad === 1) {
             removeItem(producto)
-        }else{
+        } else {
             const nuevoCarrito = cart.map((item) => {
                 if (item.id === producto.id) {
-                    return{
+                    return {
                         ...item,
                         cantidad: item.cantidad - cantidad
                     }
@@ -45,7 +44,7 @@ const CartProvider = ({children}) => {
             })
             setCart(nuevoCarrito)
         }
-    }   
+    }
 
     const removeItem = (producto) => {
         const nuevoCarrito = cart.filter(el => el.id !== producto.id)
@@ -58,8 +57,8 @@ const CartProvider = ({children}) => {
     }
 
 
-    return(
-        <CartContext.Provider value={{cart, addItem, removeItem, cleanCart, inCart, decrementItem}}>
+    return (
+        <CartContext.Provider value={{ cart, addItem, removeItem, cleanCart, inCart, decrementItem }}>
             {children}
         </CartContext.Provider>
     )

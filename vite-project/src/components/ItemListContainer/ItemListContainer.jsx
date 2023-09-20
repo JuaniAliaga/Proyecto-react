@@ -1,12 +1,12 @@
-import { useState,useEffect } from "react"
+import { useState, useEffect } from "react"
 import ItemList from "./ItemList"
 import { useParams } from "react-router-dom"
-import {getProducts} from "../../services"
+import { getProducts } from "../../services"
 
 const ItemListContainer = () => {
     const [item, setItem] = useState([])
     const [isLoading, setIsLoading] = useState(true)
-    const {categoryid} = useParams()
+    const { categoryid } = useParams()
 
     useEffect(() => {
 
@@ -15,13 +15,11 @@ const ItemListContainer = () => {
             setItem(response)
             setIsLoading(false)
         })
-    },[categoryid])
+    }, [categoryid])
 
-
-
-    return(
+    return (
         <div className="container-fluid">
-            <ItemList item={item} loading={isLoading}/>
+            <ItemList item={item} loading={isLoading} />
         </div>
     )
 }

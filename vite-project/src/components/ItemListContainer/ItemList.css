@@ -1,8 +1,8 @@
-.img-hover:hover{
+.img-hover:hover {
     transform: scale(1.01);
 }
 
-.card-body{
+.card-body {
     padding: 0;
     display: grid;
     grid-template-columns: 1fr;
@@ -10,6 +10,6 @@
     grid-row-gap: 5px;
 }
 
-.btn{
+.btn {
     align-self: flex-end;
 }

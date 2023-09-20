@@ -14,21 +14,21 @@ const ItemDetailContainer = () => {
 
     useEffect(() => {
         getProduct(id)
-        .then((response) => {
-            setItem(response)
-        })
-        .catch(() => {
-            setItem(null)
-        })
-        .finally(() => {
-            setLoading(false)
-        })
+            .then((response) => {
+                setItem(response)
+            })
+            .catch(() => {
+                setItem(null)
+            })
+            .finally(() => {
+                setLoading(false)
+            })
     }, [id])
 
 
 
-    return <ItemDetail item={item} loading={loading} addItem={addItem}/>
-    
+    return <ItemDetail item={item} loading={loading} addItem={addItem} />
+
 }
 
 export default ItemDetailContainer

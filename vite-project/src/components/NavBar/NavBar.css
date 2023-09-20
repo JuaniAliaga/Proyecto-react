@@ -1,9 +1,9 @@
-.navbar{
+.navbar {
     background-color: #1E1E1E;
     padding: 10px 0;
 }
 
-.navbar-brand{
+.navbar-brand {
     font-size: 1.5rem;
 }
 
@@ -13,26 +13,26 @@
     margin: 10px 0;
 }
 
-.links{
+.links {
     padding: 10px 16px;
     transition: background-color 0.3s;
 }
 
-.container{
+.container {
     margin-left: 0;
     margin-right: 100px;
 }
 
-h2{
+h2 {
     margin: 0;
     padding: 0 4px 6px 0;
 }
 
 
-.categories{
-    background-color: #454545   ;
+.categories {
+    background-color: #454545;
 }
 
-.list-group-item .links:hover{
+.list-group-item .links:hover {
     background-color: darkgray;
-} 
+}
