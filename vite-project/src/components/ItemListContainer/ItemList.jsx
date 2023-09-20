@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import "./ItemList.css"
+import styles from"./ItemList.css"
 
 const ItemList = ({ item, loading }) => {
     if (loading) {
@@ -17,10 +17,10 @@ const ItemList = ({ item, loading }) => {
             <div className="card-container d-flex flex-wrap gap-3 justify-content-center">
                 {item.map((p) => (
                     <div key={p.id} className="card overflow-hidden" style={{maxWidth: "345px", maxHeight: "370px"}}>
-                        <img src={`../../../public/${p.imageId}`} className="card-img-top img-fluid h-50 p-1" style={{ boxShadow: '0px 5px 10px -6px rgba(0,0,0,0.85)' }} alt={p.nombre} />
-                        <div className="card-body">
+                        <img src={`../../../public/${p.imageId}`} className="card-img-top img-fluid h-50 p-1 img-hover" style={{ boxShadow: '0px 5px 10px -6px rgba(0,0,0,0.85)' }} alt={p.nombre} />
+                        <div className="card-body gap-1">
                         <h5 className="card-title text-center mt-2">{p.nombre}</h5>
-                        <p className="card-text text-start fw-bold ms-3">${p.precio}</p>
+                        <p className="card-text text-start fw-bold ms-3 mt-2">${p.precio}</p>
                         <Link to={`/item/${p.id}`} className="btn btn-primary w-50 mx-auto mb-1">Detalles</Link>
                         </div>
                     </div>
