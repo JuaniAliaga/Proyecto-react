@@ -6,11 +6,11 @@
     transition: background-color 0.3s ease;
 }
 
-.cantidad {
+.quantity {
     margin: 0;
 }
 
-.eliminar {
+.delete {
     margin: 0 auto;
     cursor: pointer;
     width: 42px;
@@ -18,18 +18,18 @@
     font-size: 2.2em;
 }
 
-.eliminar:hover {
+.delete:hover {
     color: red;
 }
 
-.carrito-vacio {
+.empty-cart {
     font-size: 1.5rem;
     font-weight: 500;
     text-align: center;
     margin-top: 2em;
 }
 
-.vaciar-carrito {
+.delete-cart {
     background-color: #d9534f;
     color: #fff;
     border: none;
@@ -38,11 +38,11 @@
     font-size: 16px;
 }
 
-.vaciar-carrito i {
+.delete-cart i {
     margin-right: 5px;
 }
 
-.finalizar-compra{
+.finalize-purchase{
     color: #fff;
     border: none;
     padding: 10px 20px;
@@ -50,7 +50,7 @@
     font-size: 16px;
 }
 
-.contenedor-btn{
+.container-btn{
     margin-top: 1.5em;
     display: flex;
     gap: 1.5em;

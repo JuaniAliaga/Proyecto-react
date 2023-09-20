@@ -2,9 +2,9 @@ import { useContext } from "react"
 import CartContext from "../../context/CartContext"
 import { useState } from "react"
 import styles from "./Checkout.css"
-import { calcularTotal, mapeoDeCarritoParaOrders } from "../../utils"
+import { calculateTotal, cartMappingForOrders } from "../../utils"
 import { serverTimestamp } from "firebase/firestore"
-import { crearOrders } from "../../productos"
+import { createOrders } from "../../services"
 
 
 const Checkout = () => {
@@ -13,32 +13,32 @@ const Checkout = () => {
     const [errors, setErrors] = useState({});
     const [input, setInput] = useState({
         email: "",
-        nombre: "",
-        telefono: ""
+        name: "",
+        phone: ""
     })
 
-    const { email, nombre, telefono } = input
+    const { email, name, phone } = input
 
-    const { cart, limpiarCarrito } = useContext(CartContext)
+    const { cart, cleanCart } = useContext(CartContext)
 
-    const total = calcularTotal(cart)
+    const total = calculateTotal(cart)
 
     const handleCheckout = () => {
         const order = {
             buyer: {
-                nombre,
+                name,
                 email,
-                telefono
+                phone
             },
-            items: mapeoDeCarritoParaOrders(cart),
+            items: cartMappingForOrders(cart),
             total,
             date: serverTimestamp()
         }
         setIsLoading(true)
-        crearOrders(order).then((docRef) => {
+        createOrders(order).then((docRef) => {
             setOrderId(docRef.id)
             setIsLoading(false)
-            limpiarCarrito()
+            cleanCart()
         })
     }
 
@@ -49,7 +49,7 @@ const Checkout = () => {
         })
     }
 
-    const enviar = (e) => {
+    const send = (e) => {
         e.preventDefault()
         if (validateForm()) {
             handleCheckout();
@@ -64,11 +64,11 @@ const Checkout = () => {
             newErrors.email = "Correo electrónico no válido";
         }
 
-        if (!nombre.trim()) {
-            newErrors.nombre = "Ingresa un nombre válido";
+        if (!name.trim()) {
+            newErrors.name = "Ingresa un nombre válido";
         }
-        if (!telefono.trim()) {
-            newErrors.telefono = "Ingrese un telefono válido";
+        if (!phone.trim()) {
+            newErrors.phone = "Ingrese un telefono válido";
         }
 
         setErrors(newErrors);
@@ -85,7 +85,7 @@ const Checkout = () => {
 
             {orderId && <div>
                 <h1 className="text-center mt-3">Compra finalizada</h1>
-                <p className="orden">Su numero de orden es: {orderId}</p>
+                <p className="order">Su numero de orden es: {orderId}</p>
             </div>}
 
             {!orderId &&
@@ -96,16 +96,16 @@ const Checkout = () => {
                         {errors.email && <p className="error">{errors.email}</p>}
                     </div>
                     <div className="mb-3">
-                        <label className="form-label" htmlFor="Nombre">Nombre</label>
-                        <input type="text" className="form-control" id="Nombre" name="nombre" onChange={valorInput} placeholder="Introduzca su nombre" required />
-                        {errors.nombre && <p className="error">{errors.nombre}</p>}
+                        <label className="form-label" htmlFor="Name">Nombre</label>
+                        <input type="text" className="form-control" id="Name" name="name" onChange={valorInput} placeholder="Introduzca su nombre" required />
+                        {errors.name && <p className="error">{errors.name}</p>}
                     </div>
                     <div className="mb-3">
-                        <label className="form-label" htmlFor="Telefono">Telefono</label>
-                        <input type="tel" className="form-control" id="Telefono" name="telefono" onChange={valorInput} placeholder="Introduzca su numero" required pattern="[0-9]" />
-                        {errors.telefono && <p className="error">{errors.telefono}</p>}
+                        <label className="form-label" htmlFor="Phone">Telefono</label>
+                        <input type="tel" className="form-control" id="Phone" name="phone" onChange={valorInput} placeholder="Introduzca su numero" required pattern="[0-9]" />
+                        {errors.phone && <p className="error">{errors.phone}</p>}
                     </div>
-                    <button type="submit" className="btn btn-primary" onClick={enviar}>Finalizar compra</button>
+                    <button type="submit" className="btn btn-primary" onClick={send}>Finalizar compra</button>
                 </form>
             }
         </>

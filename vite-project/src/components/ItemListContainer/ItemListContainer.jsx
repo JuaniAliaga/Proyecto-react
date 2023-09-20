@@ -1,7 +1,7 @@
 import { useState,useEffect } from "react"
 import ItemList from "./ItemList"
 import { useParams } from "react-router-dom"
-import {obtenerProdutos} from "../../productos"
+import {getProducts} from "../../services"
 
 const ItemListContainer = () => {
     const [item, setItem] = useState([])
@@ -11,7 +11,7 @@ const ItemListContainer = () => {
     useEffect(() => {
 
         setIsLoading(true)
-        obtenerProdutos(categoryid).then((response) => {
+        getProducts(categoryid).then((response) => {
             setItem(response)
             setIsLoading(false)
         })

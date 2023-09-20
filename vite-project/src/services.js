@@ -1,7 +1,7 @@
 import { doc, getDoc, collection, getDocs,addDoc, getFirestore, query, where } from "firebase/firestore"
 
 
-export const obtenerProduto = (id) => {
+export const getProduct = (id) => {
     return new Promise((resolve, reject) => {
         const db = getFirestore()
 
@@ -19,7 +19,7 @@ export const obtenerProduto = (id) => {
     })
 }
 
-export const obtenerProdutos = (categor) => {
+export const getProducts = (categor) => {
     return new Promise((resolve, reject) => {
         const db = getFirestore()
 
@@ -43,7 +43,7 @@ export const obtenerProdutos = (categor) => {
     })
 }
 
-export const crearOrders = (orden) =>{
+export const createOrders = (orden) =>{
     const db = getFirestore()
 
     const orderCollection = collection(db, "order")

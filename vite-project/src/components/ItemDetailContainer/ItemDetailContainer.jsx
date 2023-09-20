@@ -1,7 +1,7 @@
 import ItemDetail from "./ItemDetail"
 import CartContext from "../../context/CartContext"
 import { useState, useEffect, useContext } from "react"
-import { obtenerProduto } from "../../productos"
+import { getProduct } from "../../services"
 import { useParams } from "react-router-dom"
 
 
@@ -10,10 +10,10 @@ const ItemDetailContainer = () => {
     const [loading, setLoading] = useState(true)
     const { id } = useParams()
 
-    const { agregarItem } = useContext(CartContext)
+    const { addItem } = useContext(CartContext)
 
     useEffect(() => {
-        obtenerProduto(id)
+        getProduct(id)
         .then((response) => {
             setItem(response)
         })
@@ -27,7 +27,7 @@ const ItemDetailContainer = () => {
 
 
 
-    return <ItemDetail item={item} loading={loading} agregarItem={agregarItem}/>
+    return <ItemDetail item={item} loading={loading} addItem={addItem}/>
     
 }
 
